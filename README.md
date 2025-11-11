@@ -41,43 +41,53 @@ Objetivos
 Datos
 -----
 
-- Fuente: describir el/los dataset(s) usados (origen, licencia, tamaño aproximado).
-- Formato: columnas, variables objetivo y predictoras principales.
-- Acceso: instrucciones para descargar o enlaces si aplicable. Si los datos son privados, indicar cómo obtenerlos o generar datos de ejemplo.
+- Generación propia. Ver [Cómo ejecutar](#cómo-ejecutar) para información sobre generación.
+  
+Variables:
+
+- TODO
 
 Preprocesamiento
 -----------------
 
-Describe pasos principales realizados sobre los datos:
+El pipeline se conforma de la siguiente manera:
 
-- Limpieza (valores faltantes, duplicates).
-- Transformaciones (normalización, codificación, generación de features).
-- Split (train/val/test) y estrategia (temporal, estratificado, k-fold...).
-- Herramientas/ scripts: indicar scripts o notebooks usados (ruta).
+- Limpieza
+TODO
+- Transformaciones
+TODO
+- Split (train/val/test)
+TODO
 
 Modelos y entrenamiento
 ------------------------
 
-- Modelos considerados: lista (ej.: XGBoost, RandomForest, NN con PyTorch/TensorFlow).
-- Métricas de entrenamiento y validación.
-- Hyperparameter tuning: método (GridSearch, Optuna, etc.) y rango de búsqueda.
-- Checkpoints: dónde se guardan los modelos entrenados.
+- Modelos considerados: 
+TODO
+- Métricas de entrenamiento y validación:
+TODO
+- Hiperparámetros:
+TODO
+- Repositorio de modelos: 
+MLFLOW/TODO
 
 Evaluación
 ----------
 
-- Métricas finales usadas para comparar modelos (ej.: accuracy, F1, ROC-AUC, RMSE).
-- Procedimiento de evaluación (conjuntos de prueba, validación cruzada).
-- Resultados clave (resumen numérico y tablas/figuras si aplican).
+- Métricas utilizadas: 
+TODO
+- Procedimiento de evaluación: 
+TODO
+- Resultados clave obtenidos: 
+TODO
 
 Cómo ejecutar
 -------------
 
 1) Requisitos:
 
-	- Python >= 3.8
-	- Docker (opcional para despliegue)
-	- kubectl / minikube (si se usa k8s)
+- Python >= 3.13
+- Ver **requirements.txt**
 
 2) Instalación local (entorno virtual):
 
@@ -90,22 +100,21 @@ pip install -r requirements.txt
 3) Preparar datos:
 
 ```bash
-python src/data/download_data.py   # o script equivalente
-python src/data/preprocess.py
+python src/data/generacion.py   
+python src/data/preprocesamiento.py
 ```
 
 4) Entrenamiento:
 
 ```bash
-python src/train.py --config configs/train.yaml
+python src/train.py 
 ```
 
 5) Evaluación:
 
 ```bash
-python src/evaluate.py --model outputs/models/best_model.pkl
+python src/evaluate.py 
 ```
-
 
 Referencias
 ----------
