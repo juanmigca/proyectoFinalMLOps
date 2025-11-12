@@ -85,6 +85,8 @@ Variables:
   Soltero/Casado.
   - Numero Dependientes: Entero
   Número de dependientes del cliente.
+  - Genero: Categórica
+  Genero del cliente
   
 
 
