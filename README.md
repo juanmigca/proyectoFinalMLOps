@@ -45,7 +45,21 @@ Datos
   
 Variables:
 
-- TODO
+- Crédito:
+  - Monto Otorgado
+  - Fecha Desembolso
+  - Plazo
+  - Tasa de interés
+- Cliente:
+  - Ingresos Mensuales
+  - Tipo Negocio
+  - Fecha Nacimiento
+  - Municipio Residencia
+  - Zona Residencia
+  - Número de Créditos Activos
+  - Deuda Total
+  - 
+
 
 Preprocesamiento
 -----------------
