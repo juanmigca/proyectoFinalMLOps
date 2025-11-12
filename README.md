@@ -46,19 +46,47 @@ Datos
 Variables:
 
 - Crédito:
-  - Monto Otorgado
-  - Fecha Desembolso
-  - Plazo
-  - Tasa de interés
+  - Monto Otorgado: Decimal
+  Monto otorgado en el crédito (capital).
+  - Deuda Crédito
+  Monto debido total del crédito (capital + intereses).
+  - Fecha Desembolso: Fecha
+  Fecha en que se entrego el dinero al cliente.
+  - Plazo: Entero
+  Número de meses del crédito.
+  - Tasa de interés: Decimal
+  Porcentaje de intereses en decimal.
+  - Tipo Crédito: Categórica
+  Tipo del crédito otorgado, clasificado en base al destino de los fondos (nuevo negocio, remodelación, adquisición o abasto).
+  - ID Cliente: Categórica
+  Identificador de cliente.
+  - **Incumplimiento**: Booleana
+  *Variable objetivo*, indica si el crédito ha estado en incumplimiento.
 - Cliente:
-  - Ingresos Mensuales
-  - Tipo Negocio
-  - Fecha Nacimiento
-  - Municipio Residencia
-  - Zona Residencia
-  - Número de Créditos Activos
-  - Deuda Total
-  - 
+  - ID Cliente: Categórica
+  Identificador del cleinte.
+  - Ingresos Mensuales: Categórica (e.g. 10,000-20,000)
+  Rango de ingresos mensuales del cliente.
+  - Tipo Negocio: Categórica
+  Tipo de negocio que el cliente tiene (Tienda de Ropa, Venta Comida, etc.).
+  - Fecha Nacimiento: Fecha
+  Fecha de nacimiento del cliente
+  - Municipio Residencia: Categórica
+  Municipio de guatemala en el que recide.
+  - Número de Productos Financieros: Entero
+  Número de productos financieros activos del cliente (tarjetas, cuentas, créditos)
+  - Deuda Total: Decimal
+  Endeudamiento total del cleinte (este crédito + otros créditos + tarjetas)
+  - Fecha Inicio Negocio: Fecha
+  Fecha en la que comenzó a operar el negocio (Nula si el negocio es nuevo)
+  - Nivel Educativo: Categórica
+  Nivel educativo más alto alcanzado del cliente.
+  - Estado Civil: Categórica
+  Soltero/Casado.
+  - Numero Dependientes: Entero
+  Número de dependientes del cliente.
+  
+
 
 
 Preprocesamiento
