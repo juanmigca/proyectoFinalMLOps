@@ -9,8 +9,8 @@ Autores
 -------
 
 - Juan Miguel González-Campo 21077.
-- Sebastián Franco 21
-- Diana Díaz
+- Sebastián Franco 21484
+- Diana Díaz 21066
 - Sebastián Reyes
 - Carlos Aldana
 
