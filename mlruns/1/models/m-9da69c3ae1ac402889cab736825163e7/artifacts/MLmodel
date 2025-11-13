@@ -1,0 +1,22 @@
+artifact_path: /Users/dianadiaz/Documents/GitHub/proyectoFinalMLOps/mlruns/1/models/m-9da69c3ae1ac402889cab736825163e7/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.13.2
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+mlflow_version: 3.6.0
+model_id: m-9da69c3ae1ac402889cab736825163e7
+model_size_bytes: 195657
+model_uuid: m-9da69c3ae1ac402889cab736825163e7
+prompts: null
+run_id: d857dbee2e8e4d31bae23a95c7241f46
+utc_time_created: '2025-11-13 06:31:20.300651'
