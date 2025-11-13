@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 from typing import Tuple, Dict, Any, List
 
+import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
@@ -115,6 +116,30 @@ def engineer_features(df: pd.DataFrame, cfg: Dict[str, Any]) -> pd.DataFrame:
     else:
         df["productos_n"] = 0.0
 
+    # --- Convertir fecha_inicio_negocio a años de negocio (numérico) ---
+    if "fecha_inicio_negocio" in df.columns:
+        # convierte strings tipo 'YYYY-MM-DD' a datetime; valores no parseables -> NaT
+        df["fecha_inicio_negocio"] = pd.to_datetime(df["fecha_inicio_negocio"], errors="coerce", format="%Y-%m-%d")
+
+        # referencia: usar fecha_desembolso si está, si no usar fecha actual
+        if "fecha_desembolso" in df.columns:
+            ref_dates = df["fecha_desembolso"]
+        else:
+            ref_dates = pd.to_datetime("today")
+
+        # calcular años de negocio (si fecha_inicio_negocio is NaT -> fill 0)
+        years = ((ref_dates - df["fecha_inicio_negocio"]).dt.days / 365.0)
+        df["years_in_business"] = years.fillna(0).clip(lower=0)
+
+        # normalizar para tener versión en [0,1]
+        max_y = df["years_in_business"].replace(0, np.nan).max()
+        max_y = max_y if (pd.notna(max_y) and max_y > 0) else 1.0
+        df["years_in_business_n"] = (df["years_in_business"] / max_y).clip(0, 1)
+    else:
+        df["years_in_business"] = 0.0
+        df["years_in_business_n"] = 0.0
+    # ------------------------------------------------------------------
+
     return df
 
 # Categóricas
@@ -157,7 +182,7 @@ def build_dataset() -> Tuple[pd.DataFrame, pd.Series]:
     # quitar columnas que no se usaran en el modelo
     drop_cols = [c for c in [
         "fecha_nacimiento", "fecha_desembolso", "rango_ingresos_mensuales",
-        "monto_otorgado", "tasa_interes", "plazo",  # las capturamos en features
+        "monto_otorgado", "tasa_interes", "plazo", "fecha_inicio_negocio"  # las capturamos en features
     ] if c in df.columns]
     df_model = df.drop(columns=drop_cols)
 
