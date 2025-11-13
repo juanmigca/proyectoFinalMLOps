@@ -1,2 +1,4 @@
 .venv/
 Proyecto-Final-1.pdf
+.DS_Store
+datos/*.DS_Store
